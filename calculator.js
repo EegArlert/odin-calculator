@@ -29,6 +29,13 @@ function operate(operation, var1, var2) {
     else if (operation == "divide") {
         divd(var1, var2)
     }
-
-
 }
+
+const buttons = document.querySelectorAll(".btn-numerical");
+
+buttons.forEach(button => {
+    button.addEventListener("click", function() {
+        
+    })
+})
+
