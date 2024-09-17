@@ -78,6 +78,7 @@ button:active{
 
 .btn-operate button{
     background-color: rgb(6, 166, 6);
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
