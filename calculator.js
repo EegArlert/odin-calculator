@@ -9,6 +9,10 @@ function Operate(var1, var2, operation) {
         return var1 * var2
     }
     else if (operation == "/") {
+        if(var2 == 0){
+            return "Error"
+        }
+        
         return var1 / var2
     }
 }
