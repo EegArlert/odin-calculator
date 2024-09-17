@@ -18,18 +18,23 @@ body{
 }
 
 .result-display-container{
-    background-color: rgb(255, 247, 247);
-    height: 70%;
+    background-color: rgb(240, 240, 240);
+    height: 24%;
     width: 100%;
     display: flex;
-    justify-content: end;
+    flex-direction: column;
     align-items: end;
-    border-radius: 5px;
 }
 
 .result {
+    font-size: 40px;
+    padding: 0 20px 20px 20px;
+}
+
+.on-going-request{
     font-size: larger;
-    padding: 0 10px 10px 10px;
+    padding: 15px 20px 5px 20px;
+    color: rgb(88, 88, 88);
 }
 
 
@@ -49,18 +54,20 @@ button:active{
     padding-top: 10px;
     display: flex;
     justify-content: space-between;
-  
+    flex: 1;
 }
 
 .btn-numerical{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    flex: 1 0 60%;
 }
 
 .btn-numerical button{
     background-color: rgb(247, 161, 0);
     font-size: x-large;
+    height: 25%;
 }
 
 .btn-operate {
@@ -86,4 +93,8 @@ button:active{
     background-color: rgb(255, 255, 255);
 }
 
+.btn-numerical button:nth-last-child(1) {
+    flex-grow: 0;
+    flex-basis: 34%;
+}
 
