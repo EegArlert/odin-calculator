@@ -1,4 +1,3 @@
-
 function Operate(var1, var2, operation) {
     if (operation == "+") {
         return var1 + var2
@@ -27,7 +26,6 @@ const result = document.querySelector(".result");
 const onGoing = document.querySelector(".on-going-request");
 
 
-
 function RunCalculator(){
     
     buttons.forEach(button => {
@@ -35,20 +33,29 @@ function RunCalculator(){
             if(button.className == "numerical" && num2 == null && operator == null){
                 stringNum1 += button.innerText
                 onGoing.innerText = stringNum1
-                num1 = Number(stringNum1)
+                num1 = parseFloat(stringNum1)
             }
             else if(button.className == "numerical" && num1 != null && operator != null){
                 stringNum2 += button.innerText
                 onGoing.innerText = num1 + " " + operator + " " + stringNum2
-                num2 = Number(stringNum2)
-
-                //this doesn't display correctly
+                num2 = parseFloat(stringNum2)
             }
             else if(button.className == "operator" && num1 != null){
                 operator = button.innerText
                 onGoing.innerText += " " + operator;
-
             }
+
+            else if(button.id == "btn-decimal"){
+                if(operator == null && stringNum1.includes(".") == false){
+                    stringNum1 += button.innerText;
+                    onGoing.innerText += button.innerText
+                }
+                else if(operator != null && stringNum2.includes(".") == false){
+                    stringNum2 += button.innerText
+                    onGoing.innerText += button.innerText
+                }
+            }
+
             else if(button.className == "function"){
                 if (button.id == "btn-clear"){
                     ResetCalculator();
@@ -60,21 +67,13 @@ function RunCalculator(){
                     result.innerText = num1
                     onGoing.innerText = num1                   
                 }
-                // else if(button.id == "btn-back"){
-                    
-                // }
 
             }
         })
     })
-
-    
-
 }
 
 RunCalculator();
-
-   
 
 function Calculate(operand1, operand2, operator){
     if(operator == null || operand1 == null || operand2 == null){
