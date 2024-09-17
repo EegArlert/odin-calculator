@@ -1,5 +1,5 @@
 
-function operate(var1, var2, operation) {
+function Operate(var1, var2, operation) {
     if (operation == "+") {
         return var1 + var2
     }
@@ -28,7 +28,7 @@ const onGoing = document.querySelector(".on-going-request");
 
 
 
-function runCalculator(){
+function RunCalculator(){
     
     buttons.forEach(button => {
         button.addEventListener("click", function() {
@@ -39,7 +39,7 @@ function runCalculator(){
             }
             else if(button.className == "numerical" && num1 != null && operator != null){
                 stringNum2 += button.innerText
-                onGoing.innerText = stringNum1 + " " + operator + " " + stringNum2
+                onGoing.innerText = num1 + " " + operator + " " + stringNum2
                 num2 = Number(stringNum2)
 
                 //this doesn't display correctly
@@ -51,16 +51,18 @@ function runCalculator(){
             }
             else if(button.className == "function"){
                 if (button.id == "btn-clear"){
-                    num1 = null
-                    num2 = null
+                    ResetCalculator();
                 }
                 else if(button.id == "btn-enter"){
-                    num1 = calculate(num1, num2, operator);
-                    num2 = null
-                    operator = null
+                    num1 = Calculate(num1, num2, operator);
+                    num2 = null;
+                    stringNum2 = "";
                     result.innerText = num1
                     onGoing.innerText = num1                   
                 }
+                // else if(button.id == "btn-back"){
+                    
+                // }
 
             }
         })
@@ -70,14 +72,24 @@ function runCalculator(){
 
 }
 
-runCalculator();
+RunCalculator();
 
    
 
-function calculate(operand1, operand2, operator){
+function Calculate(operand1, operand2, operator){
     if(operator == null || operand1 == null || operand2 == null){
         return null
     }   
-    return operate(operand1, operand2, operator)
+    return Operate(operand1, operand2, operator)
 }
 
+
+function ResetCalculator(){
+    num1 = null;
+    num2 = null;
+    stringNum1 = "";
+    stringNum2 = "";
+    operator = null;
+    result.innerText = 0;
+    onGoing.innerText = "";
+}

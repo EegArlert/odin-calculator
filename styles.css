@@ -73,7 +73,6 @@ button:active{
 .btn-operate {
     display: flex;
     flex-wrap: wrap;
-    flex-grow: 1;
 }
 
 .btn-operate button{
@@ -82,8 +81,7 @@ button:active{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: fit-content;
-    height: 33.5%;
+    height: 25%;
 }
 
 .btn-operate button:nth-child(1){
@@ -99,3 +97,8 @@ button:active{
     flex-basis: 34%;
 }
 
+.btn-operate button:nth-last-child(1) {
+    flex-grow: 1;
+    flex-basis: 34%;
+    background-color: rgb(140, 230, 230);
+}
